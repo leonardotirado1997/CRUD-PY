@@ -66,8 +66,23 @@ def atualizar_status():
     with open(ARQUIVO, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerows(linhas)
- 
 
+def remover_livro():
+    id_busca = input("Digite o ID do livro para remover: ")
+    novas_linhas = []
+
+    with open(ARQUIVO, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for linha in reader:
+            if linha[0] != id_busca:
+                novas_linhas.append(linha)
+
+    with open(ARQUIVO, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(novas_linhas)
+
+    print("Livro removido (se existia).")
+        
 
 def menu(): 
     # while True:
@@ -88,6 +103,8 @@ def menu():
         listar_livros()
     elif opcao == "3":
         atualizar_status()
+    elif opcao == "4":
+        remover_livro()    
     
 inicializar_arquivo()    
 menu()
