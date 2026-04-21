@@ -36,6 +36,13 @@ def cadastrar_livro():
 
     print("Livro cadastrado com sucesso!")
 
+# Função para listar todos os livros cadastrados
+def listar_livros():
+    with open(ARQUIVO, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for linha in reader:
+            print(linha)
+
 
 
 def menu(): 
