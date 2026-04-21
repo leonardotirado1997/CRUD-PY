@@ -54,4 +54,5 @@ def menu():
     if opcao == "1":
         cadastrar_livro()
     
+inicializar_arquivo()    
 menu()
