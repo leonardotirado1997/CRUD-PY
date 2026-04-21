@@ -60,6 +60,8 @@ def menu():
 
     if opcao == "1":
         cadastrar_livro()
+    elif opcao == "2":
+        listar_livros()
     
 inicializar_arquivo()    
 menu()
