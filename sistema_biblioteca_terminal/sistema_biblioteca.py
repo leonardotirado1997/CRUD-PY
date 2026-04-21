@@ -85,26 +85,31 @@ def remover_livro():
         
 
 def menu(): 
-    # while True:
-    print("\n=== SISTEMA DE BIBLIOTECA ===")
-    print("1 - Cadastrar livro")
-    print("2 - Listar livros")
-    print("3 - Emprestar/Devolver livro")
-    print("4 - Remover livro")
-    print("0 - Sair")
+    while True:
+        print("\n=== SISTEMA DE BIBLIOTECA ===")
+        print("1 - Cadastrar livro")
+        print("2 - Listar livros")
+        print("3 - Emprestar/Devolver livro")
+        print("4 - Remover livro")
+        print("0 - Sair")
 
-    # Variavel que recebe opcao de escolha do usuario
-    opcao = input("Escolha: ")
-    print ("Opção escolhida:",opcao)
+        # Variavel que recebe opcao de escolha do usuario
+        opcao = input("Escolha: ")
+        print ("Opção escolhida:",opcao)
 
-    if opcao == "1":
-        cadastrar_livro()
-    elif opcao == "2":
-        listar_livros()
-    elif opcao == "3":
-        atualizar_status()
-    elif opcao == "4":
-        remover_livro()    
+        if opcao == "1":
+            cadastrar_livro()
+        elif opcao == "2":
+            listar_livros()
+        elif opcao == "3":
+            atualizar_status()
+        elif opcao == "4":
+            remover_livro()
+        elif opcao == "0":
+            print("Saindo...")
+            break 
+        else:
+            print("Opção inválida!")       
     
 inicializar_arquivo()    
 menu()
