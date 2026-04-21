@@ -43,6 +43,30 @@ def listar_livros():
         for linha in reader:
             print(linha)
 
+# Atualiza dados do livro
+def atualizar_status():
+    id_busca = input("Digite o ID do livro: ")
+    linhas = []
+ 
+    with open(ARQUIVO, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        linhas = list(reader)
+ 
+    for i in range(1, len(linhas)):
+        if linhas[i][0] == id_busca:
+            if linhas[i][3] == "Disponivel":
+                linhas[i][3] = "Emprestado"
+            else:
+                linhas[i][3] = "Disponivel"
+            print("Status atualizado!")
+            break
+    else:
+        print("Livro não encontrado.")
+ 
+    with open(ARQUIVO, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(linhas)
+ 
 
 
 def menu(): 
@@ -62,6 +86,8 @@ def menu():
         cadastrar_livro()
     elif opcao == "2":
         listar_livros()
+    elif opcao == "3":
+        atualizar_status()
     
 inicializar_arquivo()    
 menu()
